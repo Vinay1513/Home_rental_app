@@ -228,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                       margin: const EdgeInsets.only(left: 22),
                       height: 120,
-                      width: 346,
+                      width: 330,
                       decoration: const BoxDecoration(
                           color: Color.fromRGBO(255, 255, 255, 1),
                           borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -303,7 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: 2,
                                   ),
                                   Text(
-                                    "4 Bedrooms",
+                                    "4 Bathrooms",
                                     style: GoogleFonts.poppins(
                                       fontSize: 9,
                                       fontWeight: FontWeight.w600,

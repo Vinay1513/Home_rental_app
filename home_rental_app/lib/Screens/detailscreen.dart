@@ -38,7 +38,7 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget MiddleSection() {
     return Stack(children: [
       Container(
-        margin: const EdgeInsets.only(top: 68, left: 22),
+        margin: const EdgeInsets.only(top: 68, left: 22, right: 10),
         height: 244,
         width: 400,
         decoration: BoxDecoration(
@@ -86,7 +86,7 @@ class _DetailScreenState extends State<DetailScreen> {
             ],
           ),
           Container(
-            margin: const EdgeInsets.only(left: 121),
+            margin: const EdgeInsets.only(left: 50),
             height: 24,
             width: 125,
             child: RichText(

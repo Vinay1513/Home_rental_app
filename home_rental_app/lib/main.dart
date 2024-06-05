@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:home_rental_app/Screens/getStarted.dart';
 
 void main() {
