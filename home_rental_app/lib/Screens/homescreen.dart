@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController keywordController = TextEditingController();
 
-  Widget buildHeader() {
+  Widget Header() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget buildSearchBar() {
+  Widget SearchBar() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: TextField(
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget buildSectionTitle(String title,
+  Widget SectionTitle(String title,
       {String? actionText, VoidCallback? onActionTap}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,10 +106,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget buildPropertyCard(
-      String imageUrl, String title, String location, String price) {
+  Widget Card(String imageUrl, String title, String location, String price) {
     return Container(
-      margin: const EdgeInsets.only(left: 22, bottom: 10),
+      margin: const EdgeInsets.only(left: 50, bottom: 10),
       height: 306,
       width: 211,
       decoration: const BoxDecoration(
@@ -119,11 +118,22 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            margin: const EdgeInsets.all(20),
-            height: 196,
-            width: double.infinity,
-            child: Image.asset(imageUrl, fit: BoxFit.cover),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => DetailScreen()));
+            },
+            child: Container(
+                margin: const EdgeInsets.all(20),
+                height: 196,
+                width: double.infinity,
+                child: Stack(children: [
+                  Image.asset(imageUrl, fit: BoxFit.cover),
+                  Positioned(
+                      top: 15,
+                      left: 120,
+                      child: Image.asset("assets/images/Group1.png"))
+                ])),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 19),
@@ -185,25 +195,25 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            buildHeader(),
-            buildSectionTitle("Let’s find your best residence "),
+            Header(),
+            SectionTitle("Let’s find your best residence "),
             const SizedBox(height: 10),
-            buildSearchBar(),
-            buildSectionTitle("Most popular", actionText: "See All"),
+            SearchBar(),
+            SectionTitle("Most popular", actionText: "See All"),
             const SizedBox(height: 10),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  buildPropertyCard("assets/images/Rectangle5.png",
-                      "Night Hill Villa", "London, Night Hill", "5900"),
-                  buildPropertyCard("assets/images/Rectangle6.png",
-                      "Night Villa", "London, New York", "4900"),
+                  Card("assets/images/Rectangle5.png", "Night Hill Villa",
+                      "London, Night Hill", "5900"),
+                  Card("assets/images/Rectangle6.png", "Night Villa",
+                      "London, New York", "4900"),
                 ],
               ),
             ),
             const SizedBox(height: 10),
-            buildSectionTitle("Nearby your location", actionText: "More"),
+            SectionTitle("Nearby your location", actionText: "More"),
             const SizedBox(
               height: 10,
             ),
@@ -330,7 +340,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           )),
                         ],
                       )))
-            ])
+            ]),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Container(
+                  height: 5.15,
+                  width: 138,
+                  decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 1)),
+                )
+              ],
+            )
           ],
         ),
       ),
